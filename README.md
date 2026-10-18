@@ -82,26 +82,6 @@
 
 ---
 
-### 📊 My GitHub Stats
-
-<div align="center">
-
-![Github Stats 3](https://github-readme-stats.vercel.app/api?username=Anil-sain-1729)
-
-![Github Stats](https://github-readme-streak-stats.herokuapp.com/?user=Anil-sain-1729)
-
-![Githu Stats 2](https://github-readme-stats.vercel.app/api/top-langs/?username=Anil-sain-1729)
-
-</div>
-
-<br>
-
-
-
-
-
-
-
 
 # 📊 GitHub Stats:
 ![](https://github-readme-stats.shion.dev/api?username=Anil-sain-1729&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
