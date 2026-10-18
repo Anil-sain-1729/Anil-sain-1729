@@ -97,6 +97,29 @@
 <br>
 
 
+
+
+
+
+
+
+# 📊 GitHub Stats:
+![](https://github-readme-stats.shion.dev/api?username=Anil-sain-1729&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
+![](https://streak-stats.demolab.com/?user=Anil-sain-1729&theme=dark&hide_border=false)<br/>
+![](https://github-readme-stats.shion.dev/api/top-langs/?username=Anil-sain-1729&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+
+---
+[![](https://komarev.com/ghpvc/?username=Anil-sain-1729&icon=0&color=0)](https://visitcount.itsvg.in)
+
+<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+
+
+
+
+
+
+
+
 - 🔭 I’m currently working on Data Science Mentorship Program
 - 🌱 I’m currently learning SQL
 - 💬 Ask me about Machine Learning, Deep Learning and NLP
