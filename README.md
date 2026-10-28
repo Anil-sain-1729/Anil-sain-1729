@@ -31,6 +31,7 @@
 | **Amazon**         | https://link.amazon/B08QunIXp    |
 | **Flipkart**       | https://dl.flipkart.com/s/xXE5WjNNNN      |
 | **Play google**         | https://play.google.com/store/books/details?id=7hYPEgAAQBAJ    |
+| **Play google**         | https://play.google.com/store/books/details?id=7hYPEgAAQBAJ    |
 
 ---
 
