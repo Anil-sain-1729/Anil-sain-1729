@@ -149,8 +149,6 @@
 
 ---
 
-
-
 <div align="center">
    <br/><br/>
    <h2 align="center">⚡ Profile Summary ⚡</h2>
