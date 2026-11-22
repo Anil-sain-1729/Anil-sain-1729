@@ -161,38 +161,607 @@
 
 ------
 
----
 
-# 🌌 LIVE SOLAR SYSTEM EXPLORER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live 3D Solar System Explorer</title>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Solar_System-3D_Explorer-00F7FF?style=for-the-badge&logo=solarsystem&logoColor=white"/>
-</p>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
 
-<p align="center">
-  Explore the Universe with an Interactive Solar System.
-</p>
+body {
+    background:#02040b;
+    color:white;
+    font-family:Arial,sans-serif;
+    overflow:hidden;
+}
 
-<p align="center">
-  ☀️ Sun | 🌍 Earth | 🪐 8 Planets | 🌙 Natural Satellites
-</p>
+#space {
+    position:fixed;
+    inset:0;
+}
 
-<p align="center">
-  <a href="YOUR_SOLAR_SYSTEM_WEBSITE_LINK">
-    <img src="https://img.shields.io/badge/🚀_Explore_Live_Solar_System-Click_Here-2563EB?style=for-the-badge"/>
-  </a>
-</p>
+canvas {
+    display:block;
+}
 
-**Features:**
-- 🌍 All 8 Planets
-- ☀️ Sun and Planetary Orbits
-- 🌙 Planetary Moons
-- 🛰️ Interactive Space Exploration
-- 🔭 Zoom and Simulation Controls
+.header {
+    position:absolute;
+    top:15px;
+    width:100%;
+    text-align:center;
+    pointer-events:none;
+    z-index:2;
+}
 
-**Technologies:** HTML | CSS | JavaScript
+.header h1 {
+    color:#55eaff;
+    font-size:25px;
+    text-shadow:0 0 15px #00bfff;
+}
 
----
+.header p {
+    color:#aaa;
+    margin-top:8px;
+    font-size:12px;
+}
+
+.panel {
+    position:absolute;
+    left:15px;
+    top:100px;
+    width:220px;
+    padding:15px;
+    background:#0b1225dd;
+    border:1px solid #24516d;
+    border-radius:12px;
+    z-index:3;
+}
+
+.panel h3 {
+    color:#50eaff;
+    margin-bottom:12px;
+}
+
+.panel p {
+    font-size:13px;
+    margin:8px 0;
+    color:#ddd;
+}
+
+.controls {
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    justify-content:center;
+    width:95%;
+    z-index:3;
+}
+
+button {
+    padding:10px 14px;
+    border:1px solid #167da9;
+    background:#10243e;
+    color:#55eaff;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover {
+    background:#075985;
+    color:white;
+}
+
+#speedValue {
+    color:#fff;
+    font-size:12px;
+    padding:10px;
+}
+
+@media(max-width:600px) {
+    .panel {
+        top:85px;
+        width:155px;
+        padding:10px;
+    }
+    .header h1 {font-size:19px;}
+    .panel p {font-size:11px;}
+}
+</style>
+
+<script type="importmap">
+{
+ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+ }
+}
+</script>
+</head>
+
+<body>
+
+<div id="space"></div>
+
+<div class="header">
+    <h1>🌌 LIVE SOLAR SYSTEM</h1>
+    <p>Explore the Universe in 3D</p>
+</div>
+
+<div class="panel" id="info">
+    <h3>☀️ Solar Explorer</h3>
+    <p>Click on any planet.</p>
+    <p>🪐 8 Planets</p>
+    <p>🌙 Major Moons</p>
+    <p>✨ Interactive 3D Space</p>
+</div>
+
+<div class="controls">
+    <button id="pause">⏸ Pause</button>
+    <button id="slower">➖ Slow</button>
+    <button id="faster">➕ Fast</button>
+    <button id="reset">↻ Reset</button>
+    <button id="zoomIn">🔍 Zoom In</button>
+    <button id="zoomOut">🔎 Zoom Out</button>
+    <span id="speedValue">Speed: 1x</span>
+</div>
+
+<script type="module">
+
+import * as THREE from 'three';
+import { OrbitControls } from
+'three/addons/controls/OrbitControls.js';
+
+// Scene
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x02040b);
+
+// Camera
+const camera = new THREE.PerspectiveCamera(
+    55,
+    window.innerWidth/window.innerHeight,
+    0.1,
+    3000
+);
+
+camera.position.set(0,150,280);
+
+// Renderer
+const renderer = new THREE.WebGLRenderer({
+    antialias:true
+});
+
+renderer.setSize(window.innerWidth,window.innerHeight);
+renderer.setPixelRatio(
+    Math.min(window.devicePixelRatio,2)
+);
+
+document.getElementById('space').appendChild(
+    renderer.domElement
+);
+
+// Controls
+const controls = new OrbitControls(
+    camera,renderer.domElement
+);
+
+controls.enableDamping = true;
+controls.minDistance = 25;
+controls.maxDistance = 900;
+
+// Lighting
+scene.add(new THREE.AmbientLight(0xffffff,0.6));
+
+const sunLight = new THREE.PointLight(
+    0xffffff, 4, 1500
+);
+
+scene.add(sunLight);
+
+// Star field
+const starGeometry = new THREE.BufferGeometry();
+const starPositions = [];
+
+for(let i=0;i<5000;i++){
+    starPositions.push(
+        (Math.random()-0.5)*2000,
+        (Math.random()-0.5)*2000,
+        (Math.random()-0.5)*2000
+    );
+}
+
+starGeometry.setAttribute(
+    'position',
+    new THREE.Float32BufferAttribute(starPositions,3)
+);
+
+const stars = new THREE.Points(
+    starGeometry,
+    new THREE.PointsMaterial({
+        color:0xffffff,
+        size:0.8
+    })
+);
+
+scene.add(stars);
+
+// Sun
+const sunGeometry = new THREE.SphereGeometry(12,64,64);
+
+const sunMaterial = new THREE.MeshBasicMaterial({
+    color:0xffaa00
+});
+
+const sun = new THREE.Mesh(
+    sunGeometry,sunMaterial
+);
+
+scene.add(sun);
+
+// Sun glow
+const glow = new THREE.Mesh(
+    new THREE.SphereGeometry(15,32,32),
+    new THREE.MeshBasicMaterial({
+        color:0xff6600,
+        transparent:true,
+        opacity:0.15,
+        side:THREE.BackSide
+    })
+);
+
+scene.add(glow);
+
+// Sun label
+function createLabel(text,color='white'){
+    const canvas=document.createElement('canvas');
+    const ctx=canvas.getContext('2d');
+
+    canvas.width=512;
+    canvas.height=100;
+
+    ctx.font='bold 40px Arial';
+    ctx.fillStyle=color;
+    ctx.textAlign='center';
+    ctx.fillText(text,256,60);
+
+    const texture=new THREE.CanvasTexture(canvas);
+
+    const sprite=new THREE.Sprite(
+        new THREE.SpriteMaterial({
+            map:texture,
+            transparent:true,
+            depthTest:false
+        })
+    );
+
+    sprite.scale.set(25,5,1);
+    return sprite;
+}
+
+const sunLabel=createLabel('SUN','#ffcc55');
+sunLabel.position.set(0,17,0);
+scene.add(sunLabel);
+
+// Planet information
+const planetData = [
+{
+ name:'Mercury', color:0x999999,
+ size:2.2, orbit:20, speed:4.15,
+ moons:[]
+},
+{
+ name:'Venus', color:0xe4b36a,
+ size:3.5, orbit:30, speed:1.62,
+ moons:[]
+},
+{
+ name:'Earth', color:0x2277ff,
+ size:4, orbit:42, speed:1,
+ moons:[
+  ['Moon',6,0xcccccc,0.8]
+ ]
+},
+{
+ name:'Mars', color:0xd65b35,
+ size:3, orbit:55, speed:0.53,
+ moons:[
+  ['Phobos',5,0xaaaaaa,1.2],
+  ['Deimos',7,0xdddddd,0.7]
+ ]
+},
+{
+ name:'Jupiter', color:0xc69b70,
+ size:9, orbit:75, speed:0.084,
+ moons:[
+  ['Io',12,0xffcc66,1.2],
+  ['Europa',15,0xddddcc,1.1],
+  ['Ganymede',18,0xaa9988,1.5],
+  ['Callisto',22,0x777777,1.4]
+ ]
+},
+{
+ name:'Saturn', color:0xe6d0a0,
+ size:7, orbit:100, speed:0.034,
+ moons:[
+  ['Titan',12,0xddaa55,1.5],
+  ['Enceladus',16,0xffffff,0.8],
+  ['Rhea',20,0xaaaaaa,1]
+ ]
+},
+{
+ name:'Uranus', color:0x80dce5,
+ size:5.5, orbit:125, speed:0.012,
+ moons:[
+  ['Titania',10,0xcccccc,1.1],
+  ['Oberon',14,0x999999,1]
+ ]
+},
+{
+ name:'Neptune', color:0x3159dc,
+ size:5.5, orbit:150, speed:0.006,
+ moons:[
+  ['Triton',12,0xccccdd,1.2]
+ ]
+}
+];
+
+const planets=[];
+const raycaster=new THREE.Raycaster();
+const mouse=new THREE.Vector2();
+
+// Orbit creation
+function createOrbit(radius){
+
+    const geometry=new THREE.RingGeometry(
+        radius-0.12,radius+0.12,180
+    );
+
+    const material=new THREE.MeshBasicMaterial({
+        color:0x34516b,
+        side:THREE.DoubleSide,
+        transparent:true,
+        opacity:0.65
+    });
+
+    const orbit=new THREE.Mesh(
+        geometry,material
+    );
+
+    orbit.rotation.x=Math.PI/2;
+    scene.add(orbit);
+}
+
+// Planet creation
+planetData.forEach((data,index)=>{
+
+    createOrbit(data.orbit);
+
+    const pivot=new THREE.Group();
+    scene.add(pivot);
+
+    const planet=new THREE.Mesh(
+        new THREE.SphereGeometry(data.size,48,48),
+        new THREE.MeshStandardMaterial({
+            color:data.color,
+            roughness:0.85,
+            metalness:0.05
+        })
+    );
+
+    planet.position.x=data.orbit;
+    pivot.add(planet);
+
+    planet.userData=data;
+    planet.userData.isPlanet=true;
+
+    // Planet name
+    const label=createLabel(data.name);
+    label.position.set(data.orbit,data.size+3,0);
+    pivot.add(label);
+
+    // Saturn ring
+    if(data.name==='Saturn'){
+
+        const ring=new THREE.Mesh(
+            new THREE.RingGeometry(9,15,64),
+            new THREE.MeshBasicMaterial({
+                color:0xcbb88d,
+                side:THREE.DoubleSide,
+                transparent:true,
+                opacity:0.8
+            })
+        );
+
+        ring.rotation.x=Math.PI/2.7;
+        planet.add(ring);
+    }
+
+    // Moon system
+    const moons=[];
+
+    data.moons.forEach(m=>{
+
+        const moonPivot=new THREE.Group();
+
+        planet.add(moonPivot);
+
+        const moon=new THREE.Mesh(
+            new THREE.SphereGeometry(m[3],24,24),
+            new THREE.MeshStandardMaterial({
+                color:m[2],
+                roughness:0.9
+            })
+        );
+
+        moon.position.x=m[1];
+        moonPivot.add(moon);
+
+        const moonOrbit=new THREE.Mesh(
+            new THREE.RingGeometry(
+                m[1]-0.06,m[1]+0.06,64
+            ),
+            new THREE.MeshBasicMaterial({
+                color:0x778899,
+                side:THREE.DoubleSide,
+                transparent:true,
+                opacity:0.35
+            })
+        );
+
+        moonOrbit.rotation.x=Math.PI/2;
+        planet.add(moonOrbit);
+
+        moons.push({
+            pivot:moonPivot,
+            speed:Math.sqrt(1/m[1])*0.7,
+            name:m[0]
+        });
+    });
+
+    planets.push({
+        data,
+        pivot,
+        planet,
+        moons
+    });
+});
+
+// Click planet
+renderer.domElement.addEventListener('click',e=>{
+
+    const rect=renderer.domElement.getBoundingClientRect();
+
+    mouse.x=((e.clientX-rect.left)/rect.width)*2-1;
+    mouse.y=-((e.clientY-rect.top)/rect.height)*2+1;
+
+    raycaster.setFromCamera(mouse,camera);
+
+    const hits=raycaster.intersectObjects(
+        planets.map(p=>p.planet)
+    );
+
+    if(hits.length){
+
+        const data=hits[0].object.userData;
+
+        document.getElementById('info').innerHTML=`
+            <h3>🪐 ${data.name}</h3>
+            <p>Orbital Distance: ${data.orbit} AU (visual scale)</p>
+            <p>Orbital Speed: ${data.speed}</p>
+            <p>Moons displayed: ${data.moons.length}</p>
+            <p>Moons: ${
+                data.moons.map(m=>m[0]).join(', ') || 'None'
+            }</p>
+        `;
+    }
+});
+
+// Animation
+let speed=1;
+let paused=false;
+let clock=new THREE.Clock();
+
+function animate(){
+
+    requestAnimationFrame(animate);
+
+    const delta=Math.min(clock.getDelta(),0.05);
+
+    if(!paused){
+
+        const time=delta*speed;
+
+        // Sun rotation
+        sun.rotation.y+=time*0.15;
+
+        // Planets orbit around sun
+        planets.forEach(p=>{
+
+            p.pivot.rotation.y+=
+                time*p.data.speed*0.25;
+
+            // Planet rotation
+            p.planet.rotation.y+=time*0.5;
+
+            // Moons orbit their planets
+            p.moons.forEach(m=>{
+                m.pivot.rotation.y+=time*m.speed;
+            });
+        });
+
+        stars.rotation.y+=time*0.002;
+    }
+
+    controls.update();
+    renderer.render(scene,camera);
+}
+
+animate();
+
+// Buttons
+document.getElementById('pause').onclick=()=>{
+    paused=!paused;
+    document.getElementById('pause').innerText=
+        paused?'▶ Play':'⏸ Pause';
+};
+
+document.getElementById('faster').onclick=()=>{
+    speed=Math.min(speed*2,64);
+    updateSpeed();
+};
+
+document.getElementById('slower').onclick=()=>{
+    speed=Math.max(speed/2,0.125);
+    updateSpeed();
+};
+
+document.getElementById('reset').onclick=()=>{
+    speed=1;
+    paused=false;
+    planets.forEach(p=>{
+        p.pivot.rotation.y=0;
+        p.planet.rotation.y=0;
+        p.moons.forEach(m=>m.pivot.rotation.y=0);
+    });
+    document.getElementById('pause').innerText='⏸ Pause';
+    updateSpeed();
+};
+
+document.getElementById('zoomIn').onclick=()=>{
+    camera.position.multiplyScalar(0.8);
+};
+
+document.getElementById('zoomOut').onclick=()=>{
+    camera.position.multiplyScalar(1.2);
+};
+
+function updateSpeed(){
+    document.getElementById('speedValue').innerText=
+        'Speed: '+speed+'x';
+}
+
+// Responsive
+window.addEventListener('resize',()=>{
+
+    camera.aspect=window.innerWidth/window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(
+        window.innerWidth,window.innerHeight
+    );
+});
+
+</script>
+</body>
+</html>
+
 
 
 
