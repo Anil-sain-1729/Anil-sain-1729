@@ -160,6 +160,8 @@
   </div>
 </div>
 
+![](https://github-readme-stats.shion.dev/api/top-langs/?username=Anil-sain-1729&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+
 <div align="center">
    <br/><br/>
    <h2 align="center">⚡ Profile Summary ⚡</h2>
