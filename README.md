@@ -94,7 +94,24 @@
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
 
+<div align="center">
 
+  <!-- 🔥 Streak Stats -->
+  <picture>
+    <source 
+      media="(prefers-color-scheme: dark)" 
+      srcset="https://streak-stats.demolab.com?user=Anil-sain-1729&theme=react&date_format=j%20M%5B%20Y%5D&fire=FF6F00&ring=00FFFF&currStreakNum=FFFFFF&sideNums=00FFFF&currStreakLabel=00FFFF&sideLabels=00FFFF&background=0D1117&border_radius=10&count_private=true" 
+    />
+    <source 
+      media="(prefers-color-scheme: light)" 
+      srcset="https://streak-stats.demolab.com?user=Anil-sain-1729&theme=default&date_format=j%20M%5B%20Y%5D&border_radius=10&count_private=true" 
+    />
+    <img 
+      src="https://streak-stats.demolab.com?user=Anil-sain-1729&theme=react&date_format=j%20M%5B%20Y%5D&fire=FF6F00&ring=00FFFF&count_private=true&border_radius=10" 
+      alt="GitHub Streak Stats" 
+      width="390"
+    />
+  </picture>
 
 
 
