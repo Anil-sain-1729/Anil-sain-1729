@@ -146,6 +146,34 @@
 
 ![](https://github-readme-stats.shion.dev/api/top-langs/?username=Anil-sain-1729&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
 
+
+
+---
+
+<h2 align="center">🌌 LIVE 3D SOLAR SYSTEM EXPLORER</h2>
+
+<p align="center">
+  Explore the Universe with an Interactive 3D Solar System.
+</p>
+
+<p align="center">
+  ☀️ Sun | 🌍 Earth | 🪐 8 Planets | 🌙 Moons
+</p>
+
+<p align="center">
+  <a href="https://anil-sain-1729.github.io/solar-system/">
+    <img src="https://img.shields.io/badge/🚀_EXPLORE_LIVE_SOLAR_SYSTEM-00D9FF?style=for-the-badge"/>
+  </a>
+</p>
+
+<p align="center">
+  <b>Technologies:</b> HTML | CSS | JavaScript | Three.js
+</p>
+
+---
+
+
+
 <div align="center">
    <br/><br/>
    <h2 align="center">⚡ Profile Summary ⚡</h2>
