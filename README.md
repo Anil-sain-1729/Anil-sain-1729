@@ -94,9 +94,82 @@
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
 
-![](https://streak-stats.demolab.com?user=Anil-sain-1729&theme=react&date_format=j%20M%5B%20Y%5D&fire=FF6F00&ring=00FFFF&currStreakNum=FFFFFF&sideNums=00FFFF&currStreakLabel=00FFFF&sideLabels=00FFFF&background=0D1117&border_radius=10&count_private=true)<br/>
-![](https://streak-stats.demolab.com?user=Anil-sain-1729&theme=default&date_format=j%20M%5B%20Y%5D&border_radius=10&count_private=true)<br/>
-![](https://streak-stats.demolab.com?user=Anil-sain-1729&theme=react&date_format=j%20M%5B%20Y%5D&fire=FF6F00&ring=00FFFF&count_private=true&border_radius=10)<br/>
+
+
+
+
+
+<h2 align="center">⚡ GitHub Stats ⚡</h2>
+
+<div align="center">
+
+  <!-- 🔥 Streak Stats -->
+  <picture>
+    <source 
+      media="(prefers-color-scheme: dark)" 
+      srcset="https://streak-stats.demolab.com?user=Anil-sain-1729&theme=react&date_format=j%20M%5B%20Y%5D&fire=FF6F00&ring=00FFFF&currStreakNum=FFFFFF&sideNums=00FFFF&currStreakLabel=00FFFF&sideLabels=00FFFF&background=0D1117&border_radius=10&count_private=true" 
+    />
+    <source 
+      media="(prefers-color-scheme: light)" 
+      srcset="https://streak-stats.demolab.com?user=Anil-sain-1729&theme=default&date_format=j%20M%5B%20Y%5D&border_radius=10&count_private=true" 
+    />
+    <img 
+      src="https://streak-stats.demolab.com?user=Anil-sain-1729&theme=react&date_format=j%20M%5B%20Y%5D&fire=FF6F00&ring=00FFFF&count_private=true&border_radius=10" 
+      alt="GitHub Streak Stats" 
+      width="390"
+    />
+  </picture>
+
+  <br/><br/>
+
+  <!-- 📊 GitHub Stats + Top Languages Side-by-Side -->
+  <div align="center">
+    <picture>
+      <source 
+        media="(prefers-color-scheme: dark)" 
+        srcset="https://github-readme-stats.vercel.app/api?username=Anil-sain-1729&show_icons=true&theme=react&rank_icon=github&border_radius=10" 
+      />
+      <source 
+        media="(prefers-color-scheme: light)" 
+        srcset="https://github-readme-stats.vercel.app/api?username=Anil-sain-1729&show_icons=true&theme=default&rank_icon=github&border_radius=10" 
+      />
+    </picture>
+      <source 
+        media="(prefers-color-scheme: dark)" 
+        srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=Anil-sain-1729&layout=compact&theme=react&border_radius=10" 
+      />
+      <source 
+        media="(prefers-color-scheme: light)" 
+        srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=Anil-sain-1729&layout=compact&theme=default&border_radius=10" 
+      />
+      <img 
+        width="390" 
+        alt="Top languages" 
+        src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=Anil-sain-1729&theme=react" 
+      />
+      <img 
+        width="390" 
+        alt="Top languages" 
+        src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Anil-sain-1729&layout=compact&theme=react" 
+      />
+      <img 
+        width="390" 
+        alt="Top languages" 
+        src="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Anil-sain-1729&theme=react&utcOffset={utcOffset}" 
+      />
+  </div>
+   <br/><br/>
+   <h2 align="center">⚡ Profile Summary ⚡</h2>
+    <img  
+      width="390"
+      alt="Profile Summary"
+      src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Anil-sain-1729&theme=react" 
+    />
+
+</div>
+
+
+
 
 
 
