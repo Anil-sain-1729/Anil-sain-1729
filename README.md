@@ -146,14 +146,6 @@
 
 ![](https://github-readme-stats.shion.dev/api/top-langs/?username=Anil-sain-1729&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
 
----
-
-
-<p align="center">
-  <a href="https://anil-sain-1729.github.io/solar-system/">
-    <img src="https://img.shields.io/badge/🚀_EXPLORE_LIVE_SOLAR_SYSTEM-00D9FF?style=for-the-badge"/>
-  </a>
-</p>
 
 ---
 
