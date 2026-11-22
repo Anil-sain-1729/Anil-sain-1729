@@ -161,7 +161,38 @@
 
 ------
 
+---
 
+# 🌌 LIVE SOLAR SYSTEM EXPLORER
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Solar_System-3D_Explorer-00F7FF?style=for-the-badge&logo=solarsystem&logoColor=white"/>
+</p>
+
+<p align="center">
+  Explore the Universe with an Interactive Solar System.
+</p>
+
+<p align="center">
+  ☀️ Sun | 🌍 Earth | 🪐 8 Planets | 🌙 Natural Satellites
+</p>
+
+<p align="center">
+  <a href="YOUR_SOLAR_SYSTEM_WEBSITE_LINK">
+    <img src="https://img.shields.io/badge/🚀_Explore_Live_Solar_System-Click_Here-2563EB?style=for-the-badge"/>
+  </a>
+</p>
+
+**Features:**
+- 🌍 All 8 Planets
+- ☀️ Sun and Planetary Orbits
+- 🌙 Planetary Moons
+- 🛰️ Interactive Space Exploration
+- 🔭 Zoom and Simulation Controls
+
+**Technologies:** HTML | CSS | JavaScript
+
+---
 
 
 
